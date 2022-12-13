@@ -1,23 +1,23 @@
-import javax.swing.*;
+
 import java.util.Scanner;
 import java.io.*;
 
 public class Question1 {
-   public static void main(String[] args) {
-       File myObj = new File("User.txt");
+   public static void main(String[] args) throws IOException {
+       String name, address;
+       int age;
        Scanner scanner = new Scanner(System.in);
+       PrintWriter pw = new PrintWriter(new FileWriter("src\\user.txt", true));
        System.out.println("Enter your name");
-       String name = scanner.nextLine();
+       name = scanner.nextLine();
        System.out.println("Enter your address");
-       String address = scanner.nextLine();
+       address = scanner.nextLine();
        System.out.println("Enter your age");
-       String age = scanner.nextLine();
-       PrintWriter pw = null;
-       try {
-           pw = new PrintWriter(new FileWriter("src\User.txt", false));
-           Object age;
-           pw.println("%d\%d\%n", name, address, age);
-       }
+       age = scanner.nextInt();
+       pw.println(name + ","+ address+","+ age);
+       pw.flush();
+       pw.close();
+
 
 
     }
